@@ -1,1 +1,30 @@
+<h1>新規投稿</h1> 
 
+<% if @post.errors.any? %>
+  <div class="error-messages">
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @post, local: true do |f| %>
+  <h4>遊びの名前</h4>
+  <%= f.text_field :title, placeholder: "遊びの名前を入力してください" %>
+
+  <h4>対象年齢</h4>
+  <%= f.text_field :age_group, placeholder: "例: 3-5歳" %>
+
+  <h4>必要な道具</h4>
+  <%= f.text_area :tool, placeholder: "必要な道具をリスト形式で記載してください" %>
+
+  <h4>手順詳細</h4>
+  <%= f.text_area :step, placeholder: "遊びの手順を詳しく記載してください" %>
+
+  <h4>遊びの画像</h4>
+  <%= f.text_field :image, placeholder: "画像URLを入力してください" %>
+
+  <%= f.submit '投稿する' %>
+<% end %>
