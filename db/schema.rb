@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_04_100422) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_05_125724) do
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "category_id", null: false
     t.string "title", null: false
     t.string "age_group", null: false
     t.text "tool", null: false
     t.text "step", null: false
-    t.string "image", null: false
-    t.integer "views_count", default: 0
-    t.integer "favorites_count", default: 0
-    t.integer "status", default: 0, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
