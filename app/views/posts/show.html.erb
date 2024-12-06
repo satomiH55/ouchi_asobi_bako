@@ -1,11 +1,10 @@
 <h2>遊びのタイトル</h2>
 <p><%= @post.title %></p>
-
 <h2>対象年齢</h2>
 <p><%= @post.age_group %></p>
-
 <h2>必要な道具</h2>
 <p><%= @post.tool %></p>
-
 <h2>遊びの手順</h2>
 <p><%= @post.step %></p>
+<%= link_to '編集する', edit_post_path(@post.id) %><br>
+<%= link_to '投稿一覧ページへ', posts_path %>

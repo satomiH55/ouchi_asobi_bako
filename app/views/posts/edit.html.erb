@@ -1,0 +1,12 @@
+<h1>編集する</h1>
+<%= form_with model: @post, local: true do |f| %>
+  <h4>遊びのタイトル</h4>
+  <%= f.text_field :title %>
+  <h4>対象年齢</h4>
+  <%= f.text_field :age_group %>
+  <h4>必要な道具</h4>
+  <%= f.text_area :tool, placeholder: "例: はさみ, のり, 色紙" %>
+  <h4>遊びの手順</h4>
+  <%= f.text_area :step, placeholder: "手順を具体的に書いてください" %><br>
+  <%= f.submit '保存', class: "btn btn-primary" %>
+<% end %>
