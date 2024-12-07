@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_05_125724) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_07_083124) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.string "age_group", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_125724) do
     t.text "step", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "image_id"
   end
 
 end

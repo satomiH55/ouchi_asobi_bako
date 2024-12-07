@@ -8,5 +8,7 @@
   <%= f.text_area :tool, placeholder: "例: はさみ, のり, 色紙" %>
   <h4>遊びの手順</h4>
   <%= f.text_area :step, placeholder: "手順を具体的に書いてください" %><br>
+  <h4>画像</h4>
+  <%= f.file_field :image %><br>
   <%= f.submit '保存', class: "btn btn-primary" %>
 <% end %>
