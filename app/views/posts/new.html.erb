@@ -1,26 +1,32 @@
-<h1>新規投稿</h1> 
-
-<% if @post.errors.any? %>
-  <div class="error-messages">
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="cover-new"> 
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row mt-5">
+      <h1 class="font-weight-normal">あそび新規投稿</h1>
+    </div>
+    <div class="row mt-5">
+      <%= form_with model: @post, local: true do |f| %>
+        <div class="form-group mb-3">
+          <label class="form-label">【あそびの名前】</label>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">【対象年齢】</label>
+          <%= f.text_field :age_group, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">【必要な道具】</label>
+          <%= f.text_area :location, rows: 5, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">【あそびの手順】</label>
+          <%= f.text_area :step, rows: 10, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">【画像】</label><br>
+          <%= f.file_field :image %>
+        </div>
+        <%= f.submit '投稿する', class: "btn btn-success" %>
       <% end %>
-    </ul>
+    </div>
   </div>
-<% end %>
-
-<%= form_with model: @post, local: true do |f| %>
-  <h4>遊びの名前</h4>
-  <%= f.text_field :title, placeholder: "遊びの名前を入力してください" %>
-  <h4>対象年齢</h4>
-  <%= f.text_field :age_group, placeholder: "例: 3-5歳" %>
-  <h4>必要な道具</h4>
-  <%= f.text_area :tool, placeholder: "必要な道具をリスト形式で記載してください" %>
-  <h4>手順詳細</h4>
-  <%= f.text_area :step, placeholder: "遊びの手順を詳しく記載してください" %>
-  <h4>画像</h4>
-  <%= f.file_field :image %>
-  <p></p>
-  <%= f.submit '投稿する' %>
-<% end %>
+</div>

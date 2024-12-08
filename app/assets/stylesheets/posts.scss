@@ -1,13 +1,19 @@
-.error-messages {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .error-messages ul {
-    list-style: none;
-    padding: 0;
-  }
-  .error-messages li {
-    margin: 5px 0;
+h1 {
+    font-family: serif;
   }
   
+  .cover-new {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+  }
+  
+  .form-label {
+    font-size: 20px;
+  }
+  
+  .form-group {
+    width: 600px;
+  }
