@@ -9,6 +9,8 @@
       <p class="caption"><%= @post.title %></p>
       <h2>対象年齢<h2>
       <p id="text"><%= @post.age_group %></p>
+      <h2>必要な道具<h2>
+      <p id="text"><%= @post.tool %></p>
       <h2>遊びの手順<h2>
       <p id="text"><%= @post.step %></p>
       <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
