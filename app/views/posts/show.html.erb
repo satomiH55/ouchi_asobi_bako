@@ -24,8 +24,10 @@
       <p id="text"><%= @post.tool %></p>
       <h3>遊びの手順<h3>
       <p id="text"><%= @post.step %></p>
-      <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
-      <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"}, class: "btn btn-danger" %><br>
+      <% if @post.user == current_user %>
+        <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
+        <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"}, class: "btn btn-danger" %><br>
+      <% end %>
       <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3" %>
     </div>
     <div class="comments ml-5 mt-5">
