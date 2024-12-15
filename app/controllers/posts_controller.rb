@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+    @posts = Post.published.page(params[:page]).reverse_order
     # 単一の検索窓で複数カラムを検索
     if params[:search].present?
       search_query = "%#{params[:search]}%"
@@ -51,9 +51,13 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def confirm
+    @posts = current_user.posts.draft.page(params[:page]).reverse_order
+  end
+
   private
   def post_params
-    params.require(:post).permit(:user_id, :title, :age_group, :tool, :step, :image)
+    params.require(:post).permit(:user_id, :title, :age_group, :tool, :step, :image, :status)
   end
   
 end

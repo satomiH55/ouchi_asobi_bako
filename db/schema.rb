@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_13_124108) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_15_055203) do
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_13_124108) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "image_id"
     t.integer "user_id"
+    t.integer "status", default: 0, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
