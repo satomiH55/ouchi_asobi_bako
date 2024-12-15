@@ -2,7 +2,7 @@ h1 {
     font-family: serif;
   }
   
-  .cover-new {
+.cover-new {
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.4);
@@ -10,15 +10,15 @@ h1 {
     background-size: 100% 100%;
   }
   
-  .form-label {
+.form-label {
     font-size: 20px;
   }
   
-  .form-group {
+.form-group {
     width: 600px;
   }
 
-  .cover-show {
+.cover-show {
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.4);
@@ -26,11 +26,11 @@ h1 {
     background-size: 100% 100%;
   }
   
-  #text {
+#text {
     font-size: 18px;
   }
 
-  .cover-edit {
+.cover-edit {
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.4);
@@ -46,7 +46,7 @@ h1 {
   color: black;
   margin-left: 10px;
   margin-right: 10px;
-}
+  }
 
 .page a:hover,
 .next a:hover,
@@ -54,29 +54,29 @@ h1 {
 .first a:hover,
 .prev a:hover {
   color: black;
-}
+  }
 
 .current {
   font-weight: bold;
-}
+  }
 
 .comments-index {
     background-color: #fff;
     border: 1px #000 solid;
   }
   
-  .comment-delete {
+.comment-delete {
     margin-left: auto;
   }
   
-  .comments {
+.comments {
     margin-left: 50px;
   }
   
-  .caption {
+.caption {
     margin-bottom: 0;
   }
 
-  .favorite_btn {
+.favorite_btn {
     color: #000;
   }

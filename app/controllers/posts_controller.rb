@@ -16,6 +16,14 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).reverse_order
+    # 単一の検索窓で複数カラムを検索
+    if params[:search].present?
+      search_query = "%#{params[:search]}%"
+      @posts = @posts.where(
+        'title LIKE :query OR age_group LIKE :query OR tool LIKE :query OR step LIKE :query',
+        query: search_query
+      )
+    end
   end
 
   def show
