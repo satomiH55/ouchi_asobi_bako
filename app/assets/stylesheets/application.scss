@@ -18,6 +18,7 @@
  header {
   display: flex;
   background-color: #f8a9a9;
+  font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
 }
 
 header div:first-child {
@@ -45,6 +46,7 @@ a:hover {
 
 .nav-link {
   text-decoration: none;
+  font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
 }
 
 @import "bootstrap";
@@ -55,6 +57,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
 }
 
 .profiler-results {
