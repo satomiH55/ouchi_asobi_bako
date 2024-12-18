@@ -18,7 +18,7 @@
  header {
   display: flex;
   width: 100%;  /* 幅を100%に設定 */
-  background-color: #f8a9a9;
+  background-color: #000000;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
 }
 
@@ -73,7 +73,7 @@ a {
 }
 
 a:hover {
-  color: #6faed9 !important; // 濃いベビーブルー
+  color: #6faed9 !important;
   text-decoration: underline;
 }
 
