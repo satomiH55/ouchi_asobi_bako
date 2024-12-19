@@ -96,3 +96,18 @@ ol#text {
 li {
   margin-bottom: 0.5em; /* 各項目の間隔を調整 */
 }
+
+h3 {
+  font-size: 14px; /* 見出しのフォントサイズを小さく */
+  font-weight: normal;
+  font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
+}
+
+/* もし項目名が p タグや span などで使われている場合 */
+#text {
+  font-size: 16px; /* テキストのフォントサイズを調整 */
+}
+
+.small-text {
+  font-size: 20px; /* 14pxより少し小さめに設定 */
+}
