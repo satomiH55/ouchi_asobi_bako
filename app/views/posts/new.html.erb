@@ -1,4 +1,4 @@
-<div class="cover-new"> 
+<div class="cover-new">  
   <div class="container d-flex flex-column align-items-center">
     <div class="row mt-5">
       <h1 class="font-weight-normal">おうちあそび新規投稿</h1>
@@ -9,7 +9,7 @@
       <% @post.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
-      </div>
+    </div>
     <% end %>
     <div class="row mt-5">
       <%= form_with model: @post, local: true do |f| %>
@@ -22,22 +22,50 @@
           <%= f.text_field :age_group, class: "form-control" %>
         </div>
         <div class="form-group mb-3">
-          <label class="form-label">【必要な道具】</label>
-          <%= f.text_area :tool, rows: 5, class: "form-control" %>
+        <label class="form-label">【必要な道具】</label>
+        <small class="text-muted d-block">※1行につき1つの項目を入力してください。</small>
+          <ul class="list-preview">
+            <% @post.tool&.split("\n")&.each do |tool| %>
+              <li><%= tool %></li>
+            <% end %>
+          </ul>
+          <%= f.text_area :tool, rows: 5, class: "form-control mt-2" %>
         </div>
         <div class="form-group mb-3">
           <label class="form-label">【あそびの手順】</label>
-          <%= f.text_area :step, rows: 10, class: "form-control" %>
+          <small class="text-muted d-block">※1行につき1つの手順を入力してください。</small>
+            <ol class="list-preview">
+              <% @post.step&.split("\n")&.each do |step| %>
+                <li><%= step %></li>
+              <% end %>
+            </ol>
+            <%= f.text_area :step, rows: 10, class: "form-control mt-2" %>
         </div>
         <div class="form-group mb-3">
           <label class="form-label">【画像】</label><br>
           <%= f.file_field :image %>
         </div>
         <div class="form-group">
-          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+          <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"), k] }, {}, {class: "custom-select w-25 mb-3"} %>
         </div>
         <%= f.submit '投稿する', class: "btn btn-success" %>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toolField = document.getElementById("post_tool");
+    const stepField = document.getElementById("post_step");
+
+    const addBulletPoints = (field) => {
+      const lines = field.value.split("\n");
+      const formattedLines = lines.map(line => line.startsWith("・") || line.trim() === "" ? line : `・${line}`);
+      field.value = formattedLines.join("\n");
+    };
+
+    toolField.addEventListener("keyup", () => addBulletPoints(toolField));
+    stepField.addEventListener("keyup", () => addBulletPoints(stepField));
+  });
+</script>
