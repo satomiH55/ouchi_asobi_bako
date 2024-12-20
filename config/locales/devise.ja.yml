@@ -8,8 +8,15 @@ ja:
           attributes:
             email:
               blank: "Eメールを入力してください。"
-              taken: "このメールアドレスは既に登録されています。" # 追加
+              taken: "このメールアドレスは既に登録されています。"
+              too_long: "Eメールは%{count}文字以内で入力してください。"
             password:
               blank: "パスワードを入力してください。"
+              too_short: "パスワードは%{count}文字以上で入力してください。"
+              minimum: "6文字以上で入力してください"
             name:
               blank: "名前を入力してください。"
+              too_long: "名前は%{count}文字以内で入力してください。"
+            profile:
+              too_long: "プロフィールは%{count}文字以内で入力してください"
+              blank: "プロフィールを入力してください"
