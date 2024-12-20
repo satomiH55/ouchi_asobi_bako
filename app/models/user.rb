@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :profile, presence: true, length: { maximum: 140 }
 
   attachment :profile_image
 

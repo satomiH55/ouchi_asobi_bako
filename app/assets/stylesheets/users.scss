@@ -22,3 +22,26 @@
 .profile {
     padding: 15px;
 }
+
+/* エラーメッセージ表示用スタイル */
+.card.bg-danger {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8d7da; /* エラーメッセージの背景色 */
+    color: #721c24; /* エラーメッセージの文字色 */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.card.bg-danger ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.card.bg-danger li {
+    margin-bottom: 10px;
+}
+
+.card.bg-danger .message {
+    font-size: 14px;
+}
