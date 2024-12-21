@@ -28,6 +28,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # 閲覧数のカウント処理
+    unless ViewCount.find_by(user_id: current_user.id, post_id: @post.id, created_at: Time.zone.now.all_day)
+      current_user.view_counts.create(post_id: @post.id)
+    end
+    # コメント関連の処理
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(7).reverse_order
   end

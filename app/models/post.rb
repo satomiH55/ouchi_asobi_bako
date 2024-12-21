@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
+    has_many :view_counts, dependent: :destroy
 
     validates :title, presence: true, length: { maximum: 20 }
     validates :age_group, presence: true, length: { maximum: 20 },
