@@ -4,12 +4,16 @@
       <h1 class="font-weight-normal">おうちあそび新規投稿</h1>
     </div>
     <% if @post.errors.any? %>
-    <div class="card text-center text-white bg-danger mt-3">
-      <%= @post.errors.count %>件のエラーが発生しました
-      <% @post.errors.full_messages.each do |message| %>
-        <%= message %>
-      <% end %>
-    </div>
+      <div class="card text-center text-white bg-danger mt-3">
+      <div class="card-body">
+      <p><%= @post.errors.count %>件のエラーが発生しました</p>
+        <ul class="list-unstyled">
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+        </div>
+      </div>
     <% end %>
     <div class="row mt-5">
       <%= form_with model: @post, local: true do |f| %>
@@ -19,7 +23,10 @@
         </div>
         <div class="form-group mb-3">
           <label class="form-label">【対象年齢】</label>
-          <%= f.text_field :age_group, class: "form-control" %>
+          <div class="d-flex align-items-center">
+          <%= f.number_field :age_group, class: "form-control", style: "width: 5em; margin-right: 0.5em;", min: 0, max: 6 %> 
+          <span>歳～</span>
+        </div>
         </div>
         <div class="form-group mb-3">
         <label class="form-label">【必要な道具】</label>

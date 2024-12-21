@@ -4,12 +4,16 @@
       <h1 class="font-weight-normal mt-5 mb-5">おうちあそび投稿編集</h1>
     </div>
     <% if @post.errors.any? %>
-    <div class="card text-center text-white bg-danger mb-3">
-      <%= @post.errors.count %>件のエラーが発生しました
-      <% @post.errors.full_messages.each do |message| %>
-        <%= message %>
-      <% end %>
-    </div>
+      <div class="card text-center text-white bg-danger mb-3 mx-auto" style="max-width: 500px;">
+      <div class="card-body">
+      <p><%= @post.errors.count %>件のエラーが発生しました</p>
+      <ul class="list-unstyled">
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      </div>
+      </div>
     <% end %>
     <div class="row">
       <%= form_with model: @post, local: true do |f| %>
@@ -19,23 +23,32 @@
       </div>
       <div class="form-group mb-3">
         <label class="form-label">【対象年齢】</label>
-        <%= f.text_field :age_group, class: "form-control" %>
+        <div class="d-flex align-items-center">
+        <%= f.number_field :age_group, class: "form-control", style: "width: 5em; margin-right: 0.5em;", min: 0, max: 6 %> 
+        <span>歳～</span>
+        </div>
       </div>
-      <div class="form-group mb-3">
+      <div class="form-group mb-3"> 
         <label class="form-label">【必要な道具】</label>
-        <ul class="list-preview">
-          <% @post.tool.split("\n").each do |tool| %>
-            <li><%= tool %></li>
-          <% end %>
+        <small class="text-muted d-block">※1行につき1つの項目を入力してください。</small>
+        <ul class="list-preview" style="list-style-type: none; padding-left: 0;">
+        <% @post.tool&.split("\n")&.each do |tool| %>
+        <% if tool.present? %> <!-- 空行をスキップする -->
+        <li><%= tool.strip %></li> <!-- 前後の空白を削除 -->
+        <% end %>
+        <% end %>
         </ul>
         <%= f.text_area :tool, rows: 5, class: "form-control mt-2" %>
       </div>
-      <div class="form-group mb-3">
+      <div class="form-group mb-3"> 
         <label class="form-label">【あそびの手順】</label>
-        <ol class="list-preview">
-          <% @post.step.split("\n").each do |step| %>
-            <li><%= step %></li>
-          <% end %>
+        <small class="text-muted d-block">※1行につき1つの手順を入力してください。</small>
+        <ol class="list-preview" style="list-style-type: decimal; padding-left: 20px; margin: 0;">
+        <% @post.step&.split("\n")&.each do |step| %>
+          <% if step.present? %> <!-- 空行をスキップする -->
+        <li><%= step.strip.gsub(/^・\s*/, '') %></li> <!-- 先頭の「・」を取り除く -->
+        <% end %>
+        <% end %>
         </ol>
         <%= f.text_area :step, rows: 10, class: "form-control mt-2" %>
       </div>

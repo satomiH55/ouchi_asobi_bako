@@ -26,11 +26,11 @@
           <%= attachment_image_tag @user, :profile_image, size: '100x100', fallback: "no_image.svg", class: "mb-3 profile-img" %><br>
           <%= f.file_field :profile_image %>
         </div>
-        <div class="form-group">
-          <label class="form-label">プロフィール</label>
-          <%= f.text_field :profile, class: "form-control" %><br>
+        <!-- ボタンの配置 -->
+        <div class="btn-group">
+          <%= f.submit '保存する', class: "btn btn-success" %>
+          <%= link_to '削除する', post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, class: "btn btn-danger" %>
         </div>
-        <%= f.submit '保存する', class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

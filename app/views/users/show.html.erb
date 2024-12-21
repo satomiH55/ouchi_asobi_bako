@@ -1,10 +1,10 @@
-<div class="cover-user-show">
-  <div class="container d-flex flex-column align-items-center">
+<div class="cover-user-show"> 
+  <div class="container d-flex flex-column align-items-center"> 
     <div class="row mt-5">
       <% if user_signed_in? && @user == current_user %>
-       <h1 class="font-weight-normal"><%= @user.name %></h1>
+        <h1 class="font-weight-normal"><%= @user.name %></h1>
       <% else %>
-       <h1 class="font-weight-normal"><%= @user.name %>さんのページ</h1>
+        <h1 class="font-weight-normal"><%= @user.name %>さんのページ</h1>
       <% end %>
     </div>
     <% if user_signed_in? && @user == current_user %>
@@ -17,7 +17,7 @@
         <p class="d-flex align-self-end">
           <%= link_to 'フォロー外す', user_relationships_path(@user.id),  data: { turbo_method: :delete }, class: "btn btn-danger" %>
         </p>
-        <% else %>
+      <% else %>
         <p class="d-flex align-self-end">
           <%= link_to 'フォローする', user_relationships_path(@user.id),  data: { turbo_method: :post }, class:"btn btn-success" %>
         </p>
@@ -29,23 +29,23 @@
     </div>
     <div class="d-flex"> 
       <%= link_to follows_user_path(@user) do %>
-      <h6 class="follow-stats">フォロー<%= @following_users.count %></h6>
+        <h6 class="follow-stats">フォロー<%= @following_users.count %></h6>
       <% end %>  
       <%= link_to followers_user_path(@user) do %>
-      <h6 class="follow-stats">フォロワー<%= @follower_users.count %></h6>
+        <h6 class="follow-stats">フォロワー<%= @follower_users.count %></h6>
       <% end %>
     </div>
     <div class="row mt-5 index-left w-100">
-      <% @posts.each do |post| %>
-      <div class="one-post col-sm-3 mb-3">
-        <%= link_to post_path(post) do %>
-        　<%= attachment_image_tag post, :image, format: 'jpeg', size: '200x133' %>
-       　 <p class="caption mb-0"><%= post.title %></p>
-       　 <p class="caption"><%= "#{post.comments.count} コメント" %></p>
-        <% end %>
-      </div>
+      <% @posts.where(status: 'published').each do |post| %>
+        <div class="one-post col-sm-3 mb-3">
+          <%= link_to post_path(post) do %>
+            <%= attachment_image_tag post, :image, format: 'jpeg', size: '200x133' %>
+            <p class="caption mb-0"><%= post.title %></p>
+            <p class="caption"><%= "#{post.comments.count} コメント" %></p>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <%= paginate @posts %>
+    <%= paginate @posts.where(status: 'published') %>
   </div>
 </div>
