@@ -15,4 +15,8 @@ class Post < ApplicationRecord
     def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
     end
+     # 検索スコープの定義
+    scope :search_by_keyword, ->(keyword) {
+    where("title LIKE :query OR age_group LIKE :query OR tool LIKE :query OR step LIKE :query", query: "%#{keyword}%")
+    }
 end

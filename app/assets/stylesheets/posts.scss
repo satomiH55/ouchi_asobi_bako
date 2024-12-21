@@ -110,3 +110,11 @@ h3 {
 .small-text {
   font-size: 20px; 
 }
+
+.no-results {
+  font-size: 2rem; /* フォントサイズを大きく */
+  font-weight: bold; /* 太字 */
+  color: #dc3545; /* エラーメッセージのような赤色 */
+  text-align: center; /* 中央寄せ */
+  margin-top: 20px; /* 上部の余白 */
+}

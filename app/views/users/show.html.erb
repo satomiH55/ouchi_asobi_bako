@@ -27,12 +27,12 @@
       <%= attachment_image_tag @user, :profile_image, size: '100x100', fallback: "no_image.svg", class: "mb-3 profile-img" %>
       <h4 class="ml-3 mb-3 card w-100 profile"><%= @user.profile %></h4>
     </div>
-    <div class="d-flex">
+    <div class="d-flex"> 
       <%= link_to follows_user_path(@user) do %>
-        <h6>フォロー<%= @following_users.count %></h6>
+      <h6 class="follow-stats">フォロー<%= @following_users.count %></h6>
       <% end %>  
       <%= link_to followers_user_path(@user) do %>
-        <h6>フォロワー<%= @follower_users.count %></h6>
+      <h6 class="follow-stats">フォロワー<%= @follower_users.count %></h6>
       <% end %>
     </div>
     <div class="row mt-5 index-left w-100">
