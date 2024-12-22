@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
   has_many :view_counts, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :rooms, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :profile, presence: true, length: { maximum: 140 }, on: :update

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+  
   def index
     @users = User.page(params[:page]).per(5).reverse_order
   end
@@ -8,6 +10,26 @@ class UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).per(8).reverse_order
     @following_users = @user.following_user
     @follower_users = @user.follower_user
+
+    @currentUserEntry = Entry.where(user_id: current_user.id)
+    @userEntry = Entry.where(user_id: @user.id)
+
+    unless @user.id == current_user.id
+      @currentUserEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id
+            @isRoom = true
+            @roomId = cu.room_id
+            break
+          end
+        end
+        break if @isRoom
+      end
+      unless @isRoom
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit
@@ -15,14 +37,13 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])  # ユーザーを取得
-    if @user.update(user_params)  # ユーザーの情報を更新
-      redirect_to user_path(@user), notice: "プロフィールを更新しました。"  # 成功時はユーザーのページへリダイレクト
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "プロフィールを更新しました。"
     else
-      # 更新が失敗した場合、エラーメッセージを表示して編集画面を再表示
-      @posts = @user.posts.page(params[:page]).per(8).reverse_order  # 必要に応じて関連する投稿も取得
-      flash.now[:alert] = "プロフィールの更新に失敗しました。"  # フラッシュメッセージ
-      render :edit, status: :unprocessable_entity  # 編集ページを再表示
+      @posts = @user.posts.page(params[:page]).per(8).reverse_order
+      flash.now[:alert] = "プロフィールの更新に失敗しました。"
+      render :edit, status: :unprocessable_entity
     end
   end
   
@@ -37,6 +58,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :profile, :profile_image)
   end

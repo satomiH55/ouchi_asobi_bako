@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :follows, :followers
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -22,5 +26,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root :to => 'homes#top'
+  root to: 'homes#top'
 end
