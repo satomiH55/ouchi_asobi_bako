@@ -31,25 +31,11 @@
       <div class="form-group mb-3"> 
         <label class="form-label">【必要な道具】</label>
         <small class="text-muted d-block">※1行につき1つの項目を入力してください。</small>
-        <ul class="list-preview" style="list-style-type: none; padding-left: 0;">
-        <% @post.tool&.split("\n")&.each do |tool| %>
-        <% if tool.present? %> <!-- 空行をスキップする -->
-        <li><%= tool.strip %></li> <!-- 前後の空白を削除 -->
-        <% end %>
-        <% end %>
-        </ul>
         <%= f.text_area :tool, rows: 5, class: "form-control mt-2" %>
       </div>
       <div class="form-group mb-3"> 
         <label class="form-label">【あそびの手順】</label>
         <small class="text-muted d-block">※1行につき1つの手順を入力してください。</small>
-        <ol class="list-preview" style="list-style-type: decimal; padding-left: 20px; margin: 0;">
-        <% @post.step&.split("\n")&.each do |step| %>
-          <% if step.present? %> <!-- 空行をスキップする -->
-        <li><%= step.strip.gsub(/^・\s*/, '') %></li> <!-- 先頭の「・」を取り除く -->
-        <% end %>
-        <% end %>
-        </ol>
         <%= f.text_area :step, rows: 10, class: "form-control mt-2" %>
       </div>
       <div class="form-group mb-3">
