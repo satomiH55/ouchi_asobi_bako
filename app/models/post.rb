@@ -8,8 +8,8 @@ class Post < ApplicationRecord
     validates :title, presence: true, length: { maximum: 20 }
     validates :age_group, presence: true, length: { maximum: 20 },
                        numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 6 }
-    validates :tool, presence: true, length: { maximum: 20 }
-    validates :step, presence: true, length: { maximum: 195 }
+    validates :tool, presence: true, length: { maximum: 100 }
+    validates :step, presence: true, length: { maximum: 500 }
     validates :image, presence: true # もしこのバリデーションがある場合、画像を選択しないとエラーになります
 
     enum status: { published: 0, draft: 1 }

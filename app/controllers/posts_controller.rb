@@ -43,8 +43,13 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    # 「保存する」ボタンが押された場合、ステータスを変更
+    if params[:publish].present?
+      @post.status = :published
+    end
+
     if @post.update(post_params)
-      redirect_to post_path(@post.id)
+      redirect_to posts_path(@post.id) # postでなくposts
     else
       render :edit, status: :unprocessable_entity
     end
