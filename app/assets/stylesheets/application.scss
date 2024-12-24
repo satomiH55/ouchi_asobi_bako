@@ -14,6 +14,7 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "rooms";  /* rooms.scssをインポート */
 
  header {
   display: flex;

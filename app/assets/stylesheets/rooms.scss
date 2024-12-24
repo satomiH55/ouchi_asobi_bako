@@ -1,16 +1,15 @@
 /* 大枠の中央揃え */
-.cover-room-show {
+  .cover-room-show {
     height: 100vh; /* 画面の高さをフルに使用 */
     display: flex;
     flex-direction: column;
     justify-content: center; /* 縦方向の中央揃え */
     align-items: center; /* 横方向の中央揃え */
-    background-image: url("/assets/mypage-scaled.jpg");
     background-color: rgba(255, 255, 255, 0.4);
     background-blend-mode: lighten;
     background-size: cover;
     padding: 20px; /* 余白を少し追加 */
-  }
+  } 
   
   .chat-container {
     padding: 15px; // チャットコンテナのパディング
@@ -55,9 +54,11 @@
 
 /* 自分のメッセージ */
 .my-message {
-  justify-content: flex-end; /* 右寄せ */
-  margin-left: auto; /* 左側の余白を自動で設定して右寄せを強制 */
+  display: flex;
+  flex-direction: column;
   align-items: flex-end; /* 名前とメッセージを右寄せ */
+  text-align: right; /* 名前とメッセージのテキストを右寄せ */
+  margin-left: auto; /* 左側の余白を自動で埋めて右寄せを強制 */
 }
 
 /* 自分のメッセージの内容 */

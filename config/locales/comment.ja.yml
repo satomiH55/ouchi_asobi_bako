@@ -1,0 +1,10 @@
+ja:
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        comment: # コメントモデルのエラーを追加
+          attributes:
+            comment:
+              blank: "コメントを入力してください。"

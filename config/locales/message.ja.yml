@@ -1,0 +1,11 @@
+ja:
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        message:
+          attributes:
+            message:
+              blank: "を入力してください"
+              too_long: "メッセージは%{count}文字以内で入力してください"

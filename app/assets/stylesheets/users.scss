@@ -31,6 +31,10 @@
     color: #721c24; /* エラーメッセージの文字色 */
     border: 1px solid #f5c6cb;
     border-radius: 5px;
+     /* 幅を制限 */
+     max-width: 400px; /* 必要に応じて調整 */
+     margin-left: auto;
+     margin-right: auto;
 }
 
 .card.bg-danger ul {
@@ -50,7 +54,7 @@
     margin-right: 16px; /* 2文字分程度のスペース */
   }
 
-  .profile-text-field {
+.profile-text-field {
     width: 100%;
     height: 100px; /* 高さを大きくする */
     padding-top: 0; /* 上部の余白をなくして上寄せにする */

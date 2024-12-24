@@ -10,25 +10,24 @@ class UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).per(8).reverse_order
     @following_users = @user.following_user
     @follower_users = @user.follower_user
-
-    @currentUserEntry = Entry.where(user_id: current_user.id)
-    @userEntry = Entry.where(user_id: @user.id)
-
-    unless @user.id == current_user.id
-      @currentUserEntry.each do |cu|
-        @userEntry.each do |u|
-          if cu.room_id == u.room_id
-            @isRoom = true
-            @roomId = cu.room_id
-            break
-          end
-        end
-        break if @isRoom
-      end
-      unless @isRoom
-        @room = Room.new
-        @entry = Entry.new
-      end
+  
+    # 現在のユーザーと表示中のユーザーが共通のルームを検索
+    @isRoom = false
+    @roomId = nil
+  
+    common_room = Room.joins(:entries)
+                      .where(entries: { user_id: current_user.id })
+                      .joins(:entries)
+                      .where(entries: { user_id: @user.id })
+                      .distinct
+                      .first
+  
+    if common_room
+      @isRoom = true
+      @roomId = common_room.id
+    else
+      @room = Room.new
+      @entry = Entry.new
     end
   end
 

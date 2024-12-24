@@ -1,43 +1,56 @@
 <div class="container cover-room-show">
   <div class="chat-container">
-    <% @entries.each do |e| %>
-      <% if @my_account != e.user.id %>
-        <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>
+      <% @entries.where.not(user_id: current_user.id).each do |e| %> <!-- 現在ログインしているユーザーを除外 -->
+      <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>
       <% end %>
-    <% end %>
   </div>
+
+  <!--<%= form_for @message do |f| %> -->
+    <% if @message.errors.any? %>
+      <div class="card text-center text-white bg-danger mt-3">
+        <div class="card-body">
+          <p><%= @message.errors.count %>件のエラーが発生しました</p>
+          <ul class="list-unstyled">
+            <% @message.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  <!--<% end %>-->
 
   <div class="my-3">
     <%= link_to "ユーザ一覧ページに戻る", users_path, class: "btn btn-secondary btn-sm" %>
   </div>
 
-  <div class="row line-bc"> <!-- LINE会話全体を囲う --> 
+  <div class="row line-bc"> <!-- メッセージ全体を囲む -->
   <% if @messages.present? %> <!-- メッセージがある場合 -->
-    <% @messages.each do |m| %>
-      <% if m.user_id == current_user.id %> <!-- 自分のメッセージの場合 -->
-        <div class="message-wrapper my-message">
-          <p class="message-name my-name"><%= m.user.name %></p> <!-- 自分の名前を右寄せで表示 -->
-          <div class="message-content">
-            <p><%= m.message %></p> <!-- 自分のメッセージ -->
-          </div>
+  <% @messages.each do |m| %>
+    <% if m.user_id == current_user.id %> <!-- 自分のメッセージの場合 -->
+      <div class="message-wrapper my-message">
+        <p class="message-name my-name"><%= m.user.name %></p> <!-- 自分の名前 -->
+        <div class="message-content">
+          <p><%= m.message %></p> <!-- 自分のメッセージ -->
         </div>
-      <% else %> <!-- 他人のメッセージの場合 -->
-        <div class="message-wrapper other-message">
-          <p class="message-name other-name"><%= m.user.name %></p> <!-- 相手の名前を左寄せで表示 -->
-          <div class="message-content">
-            <p><%= m.message %></p> <!-- 相手のメッセージ -->
-          </div>
+      </div>
+    <% else %> <!-- 相手のメッセージの場合 -->
+      <div class="message-wrapper other-message">
+        <p class="message-name other-name"><%= m.user.name %></p> <!-- 相手の名前 -->
+        <div class="message-content">
+          <p><%= m.message %></p> <!-- 相手のメッセージ -->
         </div>
-      <% end %>
+      </div>
     <% end %>
-  <% else %> <!-- メッセージがない場合 -->
-    <p>メッセージはまだありません。</p>
-  <% end %>
+    <% end %>
+<% else %> <!-- メッセージがない場合 -->
+  <p>メッセージはまだありません。</p>
+<% end %>
 </div>
 
-  <div class="message-input">
+<div class="message-input">
     <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 80, class:"form-text-field" %>
+      <%= f.text_field :message, placeholder: "メッセージを入力してください", size: 80, class: "form-text-field" %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.submit "送信する", class: "btn btn-success" %>
     <% end %>
