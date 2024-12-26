@@ -10,20 +10,23 @@ class UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).per(8).reverse_order
     @following_users = @user.following_user
     @follower_users = @user.follower_user
-    @currentUserEntry=Entry.where(user_id: current_user.id)
-    @userEntry=Entry.where(user_id: @user.id)
+  
+    @currentUserEntry = Entry.where(user_id: current_user.id)
+    @userEntry = Entry.where(user_id: @user.id)
+  
     if @user.id == current_user.id
+      # 自分自身のページの場合は何もしない
     else
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then
             @isRoom = true
-            @roomId = cu.room_id
+            @room = cu.room_id # 共有ルームがある場合、そのルームをセット
           end
         end
       end
       if @isRoom
-      else
+      else# 共有ルームがない場合、新しいルームを作成
         @room = Room.new
         @entry = Entry.new
       end
