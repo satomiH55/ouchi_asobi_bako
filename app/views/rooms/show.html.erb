@@ -1,9 +1,11 @@
-<div class="container cover-room-show"> 
-    <div class="chat-container">
-      <% @entries.where.not(user_id: current_user.id).each do |e| %> <!-- 現在ログインしているユーザーを除外 -->
-      <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>
+<div class="container cover-room-show">
+  <div class="chat-container">
+    <% @entries.each do |e| %>
+      <% if @my_account != e.user.id %>
+        <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>
       <% end %>
-    </div> <!-- chat-container を閉じる -->
+    <% end %>
+  </div>
 
     <% if @message.errors.any? %>
       <div class="card text-center text-white bg-danger mt-3">
