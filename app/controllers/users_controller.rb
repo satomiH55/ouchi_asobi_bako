@@ -19,14 +19,16 @@ class UsersController < ApplicationController
     else
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
-          if cu.room_id == u.room_id then
+          if cu.room_id == u.room_id
             @isRoom = true
             @room = cu.room_id # 共有ルームがある場合、そのルームをセット
           end
         end
       end
+    
       if @isRoom
-      else# 共有ルームがない場合、新しいルームを作成
+        @roomId = @room # 既存のルームIDを設定
+      else # 共有ルームがない場合、新しいルームを作成
         @room = Room.new
         @entry = Entry.new
       end
