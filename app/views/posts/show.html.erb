@@ -31,8 +31,10 @@
           <% end %>
           <span>閲覧数：<%= @post.view_counts.count %></span>
           
+          <h3 class="large-text">【カテゴリー】</h3>
+          <p><%= @post.category&.name.presence || "未分類" %></p>
           <h3 class="large-text">【対象年齢】</h3>
-          <p class="small-text" id="text"><%= @post.age_group %>歳～</p>
+          <p><%= @post.age_group %>歳～</p>
           <h3 class="large-text">【必要な道具】</h3>
           <ul id="text">
             <% @post.tool.split("\n").each do |tool| %>

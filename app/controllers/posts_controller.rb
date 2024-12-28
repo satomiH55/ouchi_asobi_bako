@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
@@ -27,7 +28,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:category).find(params[:id])
+    @categories = Category.all
+    @category_name = @post.category&.name || "未分類"
     # 閲覧数のカウント処理
     unless ViewCount.find_by(user_id: current_user.id, post_id: @post.id, created_at: Time.zone.now.all_day)
       current_user.view_counts.create(post_id: @post.id)
@@ -39,6 +42,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -67,7 +71,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :title, :age_group, :tool, :step, :image, :status)
+    params.require(:post).permit(:user_id, :title, :age_group, :tool, :step, :image, :status, :category_id)
   end
   
 end
