@@ -25,6 +25,9 @@ class PostsController < ApplicationController
         query: search_query
       )
     end
+    if params[:category_id].present?
+      @posts = @posts.where(category_id: params[:category_id])
+    end
   end
 
   def show
