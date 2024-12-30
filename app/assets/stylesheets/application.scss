@@ -14,7 +14,6 @@
  *= require_self
  */
  @import "bootstrap";
- @import "rooms";  /* rooms.scssをインポート */
 
  header {
   display: flex;
@@ -53,23 +52,12 @@ a:hover {
 
 @import "bootstrap";
 
-html,
- body {
+html,body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
-}
-
-.cover {
-  height: 100%;
-  width: 100%;
-  display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
-  background-color:rgba(255,255,255,0.4);
-  background-blend-mode:lighten;
-  background-size: 100% 100%;
 }
 
 .profiler-results {

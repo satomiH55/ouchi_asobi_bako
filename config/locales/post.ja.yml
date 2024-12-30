@@ -9,8 +9,11 @@ ja:
             title:
               blank: "タイトルを入力してください。"
               too_long: "タイトルは%{count}文字以内で入力してください。"
+            category_id:
+              blank: "カテゴリーを選択してください。"
             age_group:
               blank: "対象年齢を入力してください。"
+              not_a_number: "対象年齢は数値で入力してください。"
               too_long: "対象年齢は%{count}文字以内で入力してください。"
             tool:
               blank: "必要な道具を入力してください。"
@@ -20,3 +23,4 @@ ja:
               too_long: "手順は%{count}文字以内で入力してください。"
             image:
               blank: "画像をアップロードしてください。"
+            

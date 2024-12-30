@@ -13,7 +13,7 @@
     background-image: url(/assets/colorful-scaled.jpg);
     background-color:rgba(255,255,255,0.4);
     background-blend-mode:lighten;
-    background-size: 100% 100%;
+    background-size: cover; // 画面全体に自然にフィット
   }
   
   .text-center {
