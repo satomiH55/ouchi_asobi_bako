@@ -1,17 +1,20 @@
 /* 大枠の中央揃え */
-  .cover-room-show {
-    height: 100vh; /* 画面の高さをフルに使用 */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 縦方向の中央揃え */
-    align-items: center; /* 横方向の中央揃え */
-    background-image: url(/assets/colorful-scaled.jpg);
-    background-color: rgba(255, 255, 255, 0.4);
-    background-blend-mode: lighten;
-    background-size: cover; // 画面全体に自然にフィット
-    padding: 20px; /* 余白を少し追加 */
-  } 
+.cover-room-show {
+  height: 100vh; /* 画面の高さをフルに使用 */
+  width: 100vw; /* ビューポートの幅をフルに使用 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 縦方向の中央揃え */
+  align-items: center; /* 横方向の中央揃え */
+  background-image: url(/assets/colorful-scaled.jpg);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: cover; /* 画面全体に自然にフィット */
+  background-position: center; /* 画像を中央揃え */
+  margin: 0; /* 要素自体の外側の余白を削除 */
+  padding: 20px; /* 余白を少し追加 */
+  box-sizing: border-box; /* パディング込みのサイズ計算を使用 */
+}
   
   .chat-container {
     padding: 15px; // チャットコンテナのパディング
