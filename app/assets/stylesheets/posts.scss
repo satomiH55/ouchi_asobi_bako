@@ -155,3 +155,10 @@ h3 {
 .form-control.age-group-input {
   width: 5em; /* 約5文字分の幅 */
 }
+
+.post-category,
+.post-age-group {
+  text-align: right; /* 右寄せ */
+  font-size: 1.5em; /* 文字をさらに大きく */
+  margin-top: 10px; /* 上部に余白 */
+}
