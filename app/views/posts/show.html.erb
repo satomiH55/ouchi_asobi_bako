@@ -1,7 +1,7 @@
 <div class="cover-show">  
   <div class="container">
     <div class="row justify-content-center mt-3 mb-3">
-      <h1 class="font-weight-normal mt-5 mb-5">おうちあそび投稿詳細</h1>
+      <h1 class="font-weight-normal mt-3 mb-3 text-center">おうちあそび投稿詳細</h1>
     </div>
 
     <% if @comment.errors.any? %>
@@ -16,8 +16,10 @@
     <div class="row mt-3">
       <!-- 左カラム -->
       <div class="col-md-6 content1">
-        <p class="small-text caption"><%= @post.user.name %></p>
-        <p class="small-text caption"><%= @post.title %></p>
+        <div class="post-details">
+          <p class="post-author"><%= @post.user.name %></p>
+          <p class="post-title"><%= @post.title %></p>
+        </div>
         <%= attachment_image_tag @post, :image, format: 'jpeg', size: "450x350" %><br>
         
         <div class="like-view-section">
@@ -33,11 +35,11 @@
           <span class="view-count">閲覧数：<%= @post.view_counts.count %></span>
         </div>
         
-        <h4 class="large-text">【カテゴリー】</h4>
+        <h3 class="large-text">カテゴリー</h3>
         <p class="post-category"><%= @post.category&.name.presence || "未分類" %></p>
-        <h4 class="large-text">【対象年齢】</h4>
+        <h3 class="large-text">対象年齢</h3>
         <p class="post-age-group"><%= @post.age_group %>歳～</p>
-        <h4 class="large-text">【必要な道具】</h4>
+        <h3 class="large-text">必要な道具</h3>
         <ul id="text">
           <% @post.tool.split("\n").each do |tool| %>
             <li class="small-text"><%= tool %></li>
@@ -53,7 +55,7 @@
 
       <!-- 右カラム -->
       <div class="col-md-6 content2">
-        <h4 class="large-text">【遊びの手順】</h4>
+        <h3 class="large-text">遊びの手順</h3>
         <ol id="text">
           <% @post.step.split("\n").each do |step| %>
             <li class="small-text"><%= step %></li>

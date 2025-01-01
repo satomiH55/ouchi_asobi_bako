@@ -131,17 +131,27 @@ li {
 }
 
 h3 {
-  font-size: 14px; /* 見出しのフォントサイズを小さく */
+  font-size: 1.5em; /* 見出しのフォントサイズを小さく */
   font-weight: normal;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
+  position: relative; /* 擬似要素の位置調整のため */
+}
+
+h3::after {
+  content: ""; /* 擬似要素としての線 */
+  display: block;
+  width: 50%; /* 下線の長さを要素の半分に設定 */
+  height: 2px; /* 下線の太さ */
+  background-color: black; /* 下線の色 */
+  margin: 0 auto; /* 中央揃え */
+  position: absolute;
+  bottom: -5px; /* 下線の位置調整 */
+  left: 0;
+  right: 0;
 }
 
 #text {
   font-size: 16px; /* テキストのフォントサイズを調整 */
-}
-
-.small-text {
-  font-size: 20px; 
 }
 
 .no-results {
@@ -159,7 +169,7 @@ h3 {
 .post-category,
 .post-age-group {
   text-align: left; /* 右寄せ */
-  font-size: 1.2em; /* 文字をさらに大きく */
+  font-size: 1.1em; /* 文字をさらに大きく */
   margin-top: 10px; /* 上部に余白 */
   margin-left: 20px;
 }
@@ -170,7 +180,7 @@ h3 {
   }
 
   .content1 {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
   }
 
   .content2 {
@@ -200,5 +210,24 @@ h3 {
 
 .view-count {
   display: block;
-  margin-bottom: 5px; /* 「閲覧数」の上に余白 */
+  margin-bottom: 5px; /* 「閲覧数」の下に余白 */
+}
+
+.post-details {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.post-author {
+  font-size: 1.2em; /* 通常より少し大きめ */
+  font-weight: bold; /* 太字で目立たせる */
+  color: #333; /* 落ち着いた濃い文字色 */
+  margin-bottom: 5px; /* 著者名の下に余白 */
+}
+
+.post-title {
+  font-size: 1.5em; /* タイトルをさらに大きく */
+  font-weight: bold; /* 太字でさらに強調 */
+  color: #007bff; /* タイトルに目を引く色を設定 */
+  margin-top: 5px; /* タイトルの上に余白 */
 }
