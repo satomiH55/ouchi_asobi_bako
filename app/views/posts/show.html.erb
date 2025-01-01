@@ -65,7 +65,7 @@
         <div class="comments mt-5">
           <%= form_with(model: [@post, @comment], local: true) do |f| %>
             <div class="form-group">
-              <%= f.text_area :comment, size: "60x3", placeholder: "コメントする", class: "form-control" %>
+              <%= f.text_area :comment, size: "40x3", placeholder: "コメントする", class: "form-control" %>
               <% if @comment.errors.any? %>
                 <div class="text-danger">
                   <%= @comment.errors.full_messages.join(', ') %>
