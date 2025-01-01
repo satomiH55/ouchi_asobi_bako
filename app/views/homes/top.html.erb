@@ -1,14 +1,21 @@
-<div class="cover align-middle">
-  <div class="text-center">
-    <p class="sub-title">〜楽しいがいっぱい！親子の遊びアイデアボックス〜</p>
-    <h1 class="title mb-2">おうちあそび箱</h1>
-    <% unless user_signed_in? %>
-      <%= link_to new_user_registration_path do %>
-        <h2 class="btn btn-primary mr-2">新規登録</h2>
+<div class="cover-top d-flex justify-content-center align-items-center">
+  <div class="d-flex align-items-center">
+    <!-- 画像を左側に配置 -->
+    <div class="image-container mr-4">
+      <img src="<%= asset_path('omochabako.png') %>" alt="おうちあそび箱のイラスト" class="rounded-circle">
+    </div>
+    <!-- タイトルとサブタイトル -->
+    <div class="text-center">
+      <p class="sub-title">〜楽しいがいっぱい！親子の遊びアイデアボックス〜</p>
+      <h1 class="title mb-2">おうちあそび箱</h1>
+      <% unless user_signed_in? %>
+        <%= link_to new_user_registration_path do %>
+          <h2 class="btn btn-primary mr-2">新規登録</h2>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <h2 class="btn btn-success ml-2">ログイン</h2>
+        <% end %>
       <% end %>
-      <%= link_to new_user_session_path do %>
-        <h2 class="btn btn-success ml-2">ログイン</h2>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

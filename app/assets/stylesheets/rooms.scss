@@ -1,7 +1,7 @@
 /* 大枠の中央揃え */
 .cover-room-show {
   height: 100vh; /* 画面の高さをフルに使用 */
-  width: 100vw; /* ビューポートの幅をフルに使用 */
+  width: 100%; /* 親要素の幅に合わせる */
   display: flex;
   flex-direction: column;
   justify-content: center; /* 縦方向の中央揃え */

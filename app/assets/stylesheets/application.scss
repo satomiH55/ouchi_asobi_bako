@@ -21,6 +21,7 @@ html,body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* 横方向のスクロールを防止 */
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
 }
 
@@ -47,6 +48,7 @@ header {
   width: 100%;  /* 幅を100%に設定 */
   background-color: #000000;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックを指定
+  padding: 10px 0; 
 }
 
 header div:first-child {
@@ -79,4 +81,33 @@ header div {
   text-align: center;
   color: #fff;
   font-size: 14px; /* 文字サイズを指定 */
+  padding: 10px 0;
+}
+
+.cover-top {
+  height: 100vh; /* 画面全体の高さを確保 */
+  display: flex;
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+  text-align: center; /* テキストを中央揃え */
+  background-image: url(/assets/cute-scaled.jpg);
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode: soft-light; /* 新しいブレンドモード */
+  background-size: cover;
+}
+
+.image-container img {
+  width: 100px; /* 画像のサイズを調整 */
+  height: 100px; /* 画像のサイズを調整 */
+  object-fit: cover; /* 画像のサイズをコンテナに合わせる */
+  border-radius: 50%; /* 丸形にする */
+}
+
+.cover .d-flex {
+  display: flex;
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.cover .d-flex > div {
+  margin-right: 20px; /* 画像とテキストの間に余白を追加 */
 }

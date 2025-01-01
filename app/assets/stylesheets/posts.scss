@@ -158,7 +158,47 @@ h3 {
 
 .post-category,
 .post-age-group {
-  text-align: right; /* 右寄せ */
-  font-size: 1.5em; /* 文字をさらに大きく */
+  text-align: left; /* 右寄せ */
+  font-size: 1.2em; /* 文字をさらに大きく */
   margin-top: 10px; /* 上部に余白 */
+  margin-left: 20px;
+}
+
+.cover-show {
+  .content1, .content2 {
+    padding: 15px;
+  }
+
+  .content1 {
+    background-color: #f9f9f9;
+  }
+
+  .content2 {
+    background-color: #ffffff;
+    border-left: 2px solid #eaeaea;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%; /* 各カラムが幅50%を占める */
+    max-width: 50%;
+  }
+}
+
+.like-view-section {
+  margin: 10px 0; /* 全体の上下に余白を設定 */
+}
+
+.favorite_btn {
+  display: inline-block;
+  margin-bottom: 5px; /* 「いいね」の下に余白 */
+}
+
+.view-count {
+  display: block;
+  margin-bottom: 5px; /* 「閲覧数」の上に余白 */
 }
