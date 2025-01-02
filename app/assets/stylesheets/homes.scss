@@ -31,3 +31,24 @@
     vertical-align: middle;
     font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif; // 游ゴシックに変更
   }
+
+  @media screen and (max-width: 575px) { 
+    .cover-top .d-flex {
+      flex-direction: column; /* スマホ: 縦並び */
+      align-items: center;
+      /*background-position: center; */
+    }
+
+    .title {
+      font-size: 2rem;
+    }
+    
+    .sub-title {
+      font-size: 1.1rem; // 適度に大きなサイズ
+    }
+
+    .image-container {
+      margin-right: 0; /* スマホ時: 右余白をなくす */
+      margin-top: 1.5rem; /* スマホ時: 上余白を追加 */
+    }
+  }
