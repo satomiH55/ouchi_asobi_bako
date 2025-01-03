@@ -6,6 +6,13 @@ h1 {
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
 }
 
+h1.font-weight-normal {
+  margin: 10px 0; /* 上下の余白を設定 */
+  padding: 10px; /* 内側の余白を設定 */
+  text-align: center; /* センター寄せ（必要に応じて） */
+  word-wrap: break-word; /* 長いテキストを折り返し */
+}
+
 .cover-new {
   height: 100%;
   width: 100%;
@@ -159,30 +166,33 @@ h3.large-text {
   margin-left: 25px;
 }
 
-.cover-show {
-  .content1, .content2 {
-    padding: 15px;
-    text-align: left; /* コンテンツ全体を左寄せ */
-  }
+.cover-show .content1, .cover-show .content2 {
+  padding: 15px;
+  background-color: #ffffff;
+  flex: 1 1 100%; /* コンテンツの幅を100%に設定して、画面幅に応じて調整 */
+}
 
-  .content1 {
+ /* .content1 {
     background-color: #ffffff;
-  }
+  }*/
 
-  .content2 {
-    background-color: #ffffff;
+  .cover-show .content2 {
     border-left: 2px solid #eaeaea;
+    flex: 1 1 48%; /* 2つ目のコンテンツは幅50%に調整 */
   }
 
   .row {
-    display: flex;
-    flex-wrap: wrap;
+    align-items: stretch; /* 子要素が親の高さに合わせる */
   }
 
   .col-md-6 {
     flex: 0 0 50%; /* 各カラムが幅50%を占める */
     max-width: 50%;
   }
+
+.row.mt-3 {
+  width: 100%;
+  overflow: hidden; /* はみ出し部分を非表示 */
 }
 
 .like-view-section {
