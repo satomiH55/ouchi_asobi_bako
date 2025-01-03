@@ -292,4 +292,15 @@ h3.large-text {
     margin-right: 0;
   }
 
+   /* カテゴリ選択フォームを左寄せ */
+   .post-category, .post-age-group {
+    text-align: left;
+  }
+
+  /* 年齢情報 */
+  .post-age-group {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
 }
