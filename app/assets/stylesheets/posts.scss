@@ -115,6 +115,10 @@ textarea::placeholder {
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
 }
 
+.like-view-section {
+  text-align: left; /* 左寄せ */
+}
+
 /* リストスタイルの設定 */
 ul#text {
   list-style-type: disc; /* 黒丸リスト */
@@ -135,6 +139,7 @@ h3.large-text {
   font-size: 1.3em; /* 見出しのフォントサイズを小さく */
   font-weight: normal;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
+  text-align: left;  /* 左寄せ */
   border-bottom: solid 1px #4a4a4a;
 }
 
@@ -157,6 +162,7 @@ h3.large-text {
 .cover-show {
   .content1, .content2 {
     padding: 15px;
+    text-align: left; /* コンテンツ全体を左寄せ */
   }
 
   .content1 {
@@ -202,6 +208,7 @@ h3.large-text {
   font-size: 1.2em; /* 通常より少し大きめ */
   font-weight: bold; /* 太字で目立たせる */
   color: #333; /* 落ち着いた濃い文字色 */
+  text-align: left; /* テキストを左寄せ */
   margin-bottom: 5px; /* 著者名の下に余白 */
 }
 
@@ -209,12 +216,21 @@ h3.large-text {
   font-size: 1.5em; /* タイトルをさらに大きく */
   font-weight: bold; /* 太字でさらに強調 */
   color: #007bff; /* タイトルに目を引く色を設定 */
+  text-align: left; /* テキストを左寄せ */
   margin-top: 5px; /* タイトルの上に余白 */
 }
 
 .comments .form-control {
   width: 80%; /* 画面の横幅の80%に設定 */
   max-width: 80%; /* 最大幅も80%に設定 */
+}
+
+.comments p, .comments-index p {
+  text-align: left; /* コメントテキストも左寄せ */
+}
+
+.comment-delete {
+  text-align: left; /* 削除ボタンも左寄せ */
 }
 
 /* スマホ用のレスポンシブ対応 */
@@ -265,16 +281,57 @@ h3.large-text {
   }
 
 /* 投稿詳細ページのレスポンシブ対応 */
+  .cover-show {
+  /* レスポンシブで1カラム表示 */
+    .content1, .content2 {
+    width: 100%; /* 各カラムが全幅を占める */
+    padding: 10px 0;
+    text-align: left; /* テキストを左寄せ */
+    }
+
   .post-details-wrapper {
-  flex-direction: column; /* 2カラムを1カラムに */
+    flex-direction: column; /* 2カラムを1カラムに */
+    }
+
+  .post-details {
+    text-align: left; /* 左寄せにする */
+    }
+
+  .comments {
+    margin-left: 0;
+    padding: 0 10px; /* コメントの余白調整 */
+    }
+
+  /* いいねボタンや閲覧数の位置調整 */
+  .like-view-section {
+    text-align: left;
+    margin-bottom: 15px; /* 余白調整 */
+    }
+
+  /* コメントのテキストエリアを調整 */
+  .comments .form-control {
+    width: 100%; /* フォームの幅を100%に */
+    }
+
+  .favorite_btn {
+    margin-right: 5px; /* いいねボタンの右側に余白 */
+    }
+
+  /* 投稿タイトルとカテゴリ */
+  .post-category,
+  .post-age-group {
+    font-size: 1.2em; /* サイズ調整 */
+    text-align: left; /* 左寄せ */
+    margin-top: 5px;
+    }
   }
 
-  .content1,
-  .content2 {
+/* ボタンの幅を100%に */
+.btn {
   width: 100%;
-  padding: 10px 0;
-  text-align: center; /* テキスト中央寄せ */
+  margin-top: 15px;
   }
+
 
   /* 投稿編集画面のレスポンシブ対応 */
   .cover-edit .d-flex {
@@ -302,5 +359,4 @@ h3.large-text {
     display: inline-block;
     white-space: nowrap;
   }
-
 }

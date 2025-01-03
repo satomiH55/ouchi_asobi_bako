@@ -1,7 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* 大枠の中央揃え */
 .cover-room-show {
   height: 100%;
-  width: 150% !important;
+  width: 100%; /* 画面幅に合わせる */
   display: flex;
   flex-direction: column;
   justify-content: center; /* 縦方向の中央揃え */
@@ -15,11 +21,16 @@
   padding: 20px; /* 余白を少し追加 */
 }
   
-  .container {
-    padding: 15px; // チャットコンテナのパディング
-    justify-content: center; /* 横方向の中央配置 */
-    text-align: center; /* テキストの中央配置 */    
-  }
+.container {
+  display: flex; /* Flexbox を有効化 */
+  justify-content: center; /* 子要素を中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  margin: 0 auto; /* 左右の余白を自動設定 */
+  padding: 15px; /* 必要に応じて余白を設定 */
+  width: 100%; /* 幅を画面幅に合わせる */
+  max-width: 1200px; /* 必要に応じて最大幅を設定 */
+  box-sizing: border-box; /* パディングを含めたボックスモデルに変更 */
+}
   
  /* チャットメッセージの全体を囲む */
 .line-bc {

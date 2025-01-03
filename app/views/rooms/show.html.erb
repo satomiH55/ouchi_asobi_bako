@@ -7,7 +7,7 @@
         <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>
       <% end %>
     <% end %>
-  </div>
+  
 
     <% if @message.errors.any? %>
       <div class="card text-center text-white bg-danger mt-3">
@@ -57,4 +57,5 @@
         <%= f.submit "送信する", class: "btn btn-success" %>
       <% end %> <!-- form_for を閉じる -->
     </div>
+  </div>
 </div> <!-- container cover-room-show を閉じる -->
