@@ -6,7 +6,9 @@
     </div>
     <!-- タイトルとサブタイトル -->
     <div class="text-center">
-      <p class="sub-title">〜楽しいがいっぱい！おうち遊びのアイデアボックス〜</p>
+    <!-- <p class="sub-title">〜楽しいがいっぱい！おうち遊びのアイデアボックス〜</p>-->
+      <p class="sub-title d-none d-md-block">〜楽しいがいっぱい！おうち遊びのアイデアボックス〜</p>
+      <p class="sub-title d-md-none">〜楽しいがいっぱい！<br>おうち遊びのアイデアボックス〜</p>
       <h1 class="title mb-2">おうちあそび箱</h1>
       <% unless user_signed_in? %>
         <%= link_to new_user_registration_path do %>

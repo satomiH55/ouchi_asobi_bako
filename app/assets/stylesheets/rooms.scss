@@ -1,7 +1,7 @@
 /* 大枠の中央揃え */
 .cover-room-show {
   height: 100%;
-  width: 100%;
+  width: 100% !important;
   display: flex;
   flex-direction: column;
   justify-content: center; /* 縦方向の中央揃え */
