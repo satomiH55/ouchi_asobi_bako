@@ -216,3 +216,80 @@ h3.large-text {
   width: 80%; /* 画面の横幅の80%に設定 */
   max-width: 80%; /* 最大幅も80%に設定 */
 }
+
+/* スマホ用のレスポンシブ対応 */
+@media screen and (max-width: 575px) { 
+  /* 新規投稿画面レスポンシブ対応 */
+  .cover-new {
+    text-align: center; /* コンテンツ全体を中央寄せ */
+    padding: 20px;
+  }
+
+  h1.font-weight-normal {
+    margin: 0 auto; /* 左右中央に配置 */
+    text-align: center;
+    display: inline-block;
+    width: auto;
+  }
+
+  .form-group {
+    width: 100%; /* 横幅を100%に設定 */
+    max-width: 300px; /* 最大幅を設定して横長を防止 */
+    margin: 0 auto; /* 中央に配置 */
+  }
+
+  .form-control {
+    width: 100%; /* 入力フィールドを100%に設定 */
+  }
+
+  textarea {
+    width: 100%; /* テキストエリアも100%に */
+  }
+
+  .custom-select {
+    width: 100%; /* セレクトボックスも100% */
+  }
+
+  .custom-select.wider {
+    min-width: 100px; /* 必要な文字数に応じて調整 */
+  }
+
+  #post_tool,
+  #post_step {
+    width: 100%;
+  }
+
+  .btn-success {
+    width: 100%; /* ボタンも100% */
+    margin-top: 20px;
+  }
+
+/* 投稿詳細ページのレスポンシブ対応 */
+  .post-details-wrapper {
+  flex-direction: column; /* 2カラムを1カラムに */
+  }
+
+  .content1,
+  .content2 {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center; /* テキスト中央寄せ */
+  }
+
+  /* 投稿編集画面のレスポンシブ対応 */
+  .cover-edit .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cover-edit .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* ボタン間のスペースをスマホではなくなす */
+  .cover-edit .d-flex .btn {
+    margin-right: 0;
+  }
+
+}

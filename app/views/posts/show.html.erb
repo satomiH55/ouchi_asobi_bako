@@ -45,13 +45,7 @@
             <li class="small-text"><%= tool %></li>
           <% end %>
         </ul>
-
-        <% if @post.user == current_user %>
-          <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
-          <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, class: "btn btn-danger" %><br>
-        <% end %>
-        <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3 mb-4" %>
-      </div>
+      </div>   
 
       <!-- 右カラム -->
       <div class="col-md-6 content2">
@@ -94,6 +88,11 @@
               </div>
             </div>
           <% end %>
+          <% if @post.user == current_user %>
+          <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
+          <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, class: "btn btn-danger" %><br>
+          <% end %>
+          <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3 mb-4" %>
           
           <%= paginate @comments %>
         </div>

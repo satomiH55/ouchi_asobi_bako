@@ -63,3 +63,20 @@
     padding-top: 0; /* 上部の余白をなくして上寄せにする */
     resize: none; /* ユーザーによるリサイズを無効化 */
   }
+
+  /* スマホ用のレスポンシブ対応 */
+@media screen and (max-width: 575px) { 
+/* ユーザー一覧のレスポンシブ対応 */
+.user-name {
+    font-size: 16px; /* スマホ画面では少し小さくする */
+    }
+
+/* ユーザーページのレスポンシブ対応 */
+.profile-img {
+    width: 60px; /* スマホ画面でさらに小さくする */
+    height: 60px;
+    }
+
+
+
+}
