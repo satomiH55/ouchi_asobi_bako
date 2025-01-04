@@ -20,7 +20,7 @@
           <p class="post-author font-weight-bold"><%= @post.user.name %></p>
           <p class="post-title h4"><%= @post.title %></p>
         </div>
-        <%= attachment_image_tag @post, :image, format: 'jpeg', size: "350x250" %>
+        <%= attachment_image_tag @post, :image, format: 'jpeg', class: "post-image" %>
 
         <div class="like-view-section mt-3">
           <% if @post.favorited_by?(current_user) %> 

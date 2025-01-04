@@ -177,8 +177,19 @@ h3.large-text {
 
   .col-md-6 {
     flex: 0 0 50%; /* 各カラムが幅50%を占める */
-    max-width: 50%;
+    max-width: 45%;
   }
+}
+
+.post-image {
+  display: block; /* ブロック要素にして幅指定が有効に */
+  max-width: 80%; /* 親要素の幅を超えないようにする */
+  height: auto; /* 縦横比を保持 */
+}
+
+.post-details-row{
+  justify-content: center; /* 子要素を中央に寄せる */
+  align-items: center; /* 垂直方向も中央寄せ */
 }
 
 .like-view-section {
@@ -266,16 +277,20 @@ h3.large-text {
 .post-details-row .content1,
 .post-details-row .content2 {
   display: block;
-  margin-left: 10px;
+  justify-content: center;
+  margin-left: 15px;
   margin-right: 10px;
   /* 必要に応じて幅や高さを調整 */
   max-width: 80%;
-  justify-content: center;
+}
+
+.post-details-row .content1 .post-image {
+  width: 90%; /* 親要素の幅の 70% に調整 */
+  margin: 0 auto; /* 中央寄せ */
 }
 
 .post-details-row {
   justify-content: center;
-  /* 必要に応じて行間の調整 */
 }
 
 /* 送信するボタン専用のスタイル */

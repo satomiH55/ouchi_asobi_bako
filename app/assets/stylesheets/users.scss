@@ -67,9 +67,9 @@
   /* スマホ用のレスポンシブ対応 */
 @media screen and (max-width: 575px) { 
 /* ユーザー一覧のレスポンシブ対応 */
-.user-name {
-    font-size: 0.5em; /* スマホ画面では少し小さくする */
-    }
+.cover-user-index .caption {
+    font-size: 0.8rem; /* スマホサイズ */
+  }
 
 /* ユーザーページのレスポンシブ対応 */
 .profile-img {
