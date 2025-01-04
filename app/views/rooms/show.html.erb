@@ -1,7 +1,5 @@
-<!--<div class="container cover-room-show"> -->
-<!--<div class="chat-container">-->
 <div class="cover-room-show">
-  <div class="container d-flex flex-column align-items-center">
+  <div class="chat-container d-flex flex-column align-items-center">
     <% @entries.each do |e| %>
       <% if @my_account != e.user.id %>
         <h4><strong><%= e.user.name %>さんとのチャットルーム</strong></h4>

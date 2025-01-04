@@ -1,5 +1,5 @@
-<div class="cover-show">  
-  <div class="container d-flex flex-column align-items-center">
+<div class="cover-show">
+  <div class="show-container d-flex flex-column align-items-center">
     <div class="row justify-content-center mt-3 mb-3">
       <h1 class="font-weight-normal mt-3 mb-3 text-center">おうちあそび投稿詳細</h1>
     </div>
@@ -13,50 +13,44 @@
       </div>
     <% end %>
 
-    <div class="row mt-3">
+    <div class="row post-details-row mt-3 d-flex flex-column flex-md-row">
       <!-- 左カラム -->
-      <div class="col-md-6 content1">
+      <div class="col-md-6 col-12 content1">
         <div class="post-details">
-          <p class="post-author"><%= @post.user.name %></p>
-          <p class="post-title"><%= @post.title %></p>
+          <p class="post-author font-weight-bold"><%= @post.user.name %></p>
+          <p class="post-title h4"><%= @post.title %></p>
         </div>
-        <%= attachment_image_tag @post, :image, format: 'jpeg', size: "450x350" %><br>
-        
-        <div class="like-view-section">
+        <%= attachment_image_tag @post, :image, format: 'jpeg', size: "350x250" %>
+
+        <div class="like-view-section mt-3">
           <% if @post.favorited_by?(current_user) %> 
-          <%= link_to post_favorites_path(@post), data: { turbo_method: :delete }, class: "favorite_btn" do %>
-          ♥<%= @post.favorites.count %> いいね
-          <% end %>
+            <%= link_to post_favorites_path(@post), data: { turbo_method: :delete }, class: "favorite_btn" do %>
+              ♥<%= @post.favorites.count %> いいね
+            <% end %>
           <% else %>
-          <%= link_to post_favorites_path(@post), data: { turbo_method: :post }, class: "favorite_btn" do %>
-          ♡<%= @post.favorites.count %> いいね
+            <%= link_to post_favorites_path(@post), data: { turbo_method: :post }, class: "favorite_btn" do %>
+              ♡<%= @post.favorites.count %> いいね
+            <% end %>
           <% end %>
-          <% end %>
-          <span class="view-count">閲覧数：<%= @post.view_counts.count %></span>
+          <span class="view-count ml-3">閲覧数：<%= @post.view_counts.count %></span>
         </div>
-        
-        <h3 class="large-text">カテゴリー</h3>
+
+        <h3 class="large-text mt-4">カテゴリー</h3>
         <p class="post-category"><%= @post.category&.name.presence || "未分類" %></p>
         <h3 class="large-text">対象年齢</h3>
         <p class="post-age-group"><%= @post.age_group %>歳～</p>
         <h3 class="large-text">必要な道具</h3>
-        <ul id="text">
-          <% @post.tool.split("\n").each do |tool| %>
+        <ul id="tool-text">
+            <% @post.tool.split("\n").each do |tool| %>
             <li class="small-text"><%= tool %></li>
-          <% end %>
+            <% end %>
         </ul>
-
-        <% if @post.user == current_user %>
-          <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
-          <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, class: "btn btn-danger" %><br>
-        <% end %>
-        <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3 mb-4" %>
       </div>
 
       <!-- 右カラム -->
-      <div class="col-md-6 content2">
+      <div class="col-md-6 col-12 content2">
         <h3 class="large-text">遊びの手順</h3>
-        <ol id="text">
+        <ol class="pl-3">
           <% @post.step.split("\n").each do |step| %>
             <li class="small-text"><%= step %></li>
           <% end %>
@@ -72,31 +66,40 @@
                 </div>
               <% end %>
             </div>
-            <%= f.submit "送信する", class: "btn btn-success mt-3 mb-4" %>
+            <%= f.submit "送信する", class: "btn btn-success submit-button mt-3 mb-4" %>
           <% end %>
-          
+
           <p>コメント件数：<%= @comments.count %></p>
           <% @comments.each do |comment| %>
-            <div class="comments-index mb-2">
+            <div class="comments-index mb-3 border p-2 rounded d-flex flex-column">
               <p>
                 <strong><%= comment.user.name %></strong> 
                 <%= comment.created_at.in_time_zone('Asia/Tokyo').strftime('%Y/%m/%d %H:%M') %>
               </p>
-              <div class="d-flex">
-                <p><%= comment.comment %></p>
+              <p class="comment-text mb-2"><%= comment.comment %></p>
                 <% if comment.user == current_user %>
-                  <div class="comment-delete ml-auto">
+                  <div class="ml-auto">
                     <%= link_to "削除", post_comment_path(comment.post, comment), 
                                 data: { turbo_method: :delete, confirm: '本当に削除しますか？' }, 
-                                class: "btn btn-danger btn-sm" %>
+                                class: "btn btn-danger btn-sm ml-auto" %>
                   </div>
                 <% end %>
               </div>
             </div>
           <% end %>
-          
-          <%= paginate @comments %>
+
+          <% if @post.user == current_user %>
+            <div class="mt-4">
+              <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
+              <%= link_to '削除する', post_path(@post.id), 
+                          data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, 
+                          class: "btn btn-danger" %>
+            </div>
+          <% end %>
+          <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3" %>
         </div>
+
+        <%= paginate @comments %>
       </div>
     </div>
   </div>

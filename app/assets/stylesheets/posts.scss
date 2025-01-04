@@ -116,9 +116,10 @@ textarea::placeholder {
 }
 
 /* リストスタイルの設定 */
-ul#text {
+ul#tool-text {
   list-style-type: disc; /* 黒丸リスト */
-  margin-left: 1.5em;
+  margin-left: 1.5em;    /* リストの左側の余白 */
+  padding-left: 0;       /* 追加の余白がある場合リセット */
 }
 
 ol#text {
@@ -148,7 +149,7 @@ h3.large-text {
 
 .post-category,
 .post-age-group {
-  text-align: left; /* 右寄せ */
+  text-align: left; /* 左寄せ */
   font-size: 1.1em; /* 文字をさらに大きく */
   margin-top: 5px; /* 上部に余白 */
   margin-left: 25px;
@@ -161,6 +162,7 @@ h3.large-text {
 
   .content1 {
     background-color: #ffffff;
+    padding-left: 10px;
   }
 
   .content2 {
@@ -256,7 +258,31 @@ h3.large-text {
   }
 
   .btn-success {
-    width: 100%; /* ボタンも100% */
+    width: auto; 
     margin-top: 20px;
   }
+
+/* 投稿詳細ページ */
+.post-details-row .content1,
+.post-details-row .content2 {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* 必要に応じて幅や高さを調整 */
+  max-width: 80%;
+  justify-content: center;
+}
+
+.post-details-row {
+  justify-content: center;
+  /* 必要に応じて行間の調整 */
+}
+
+/* 送信するボタン専用のスタイル */
+.submit-button {
+  width: auto; /* 幅を文字数に合わせて自動調整 */
+  padding-left: 5px; /* 左の余白 */
+  padding-right: 5px; /* 右の余白 */
+}
+
 }
