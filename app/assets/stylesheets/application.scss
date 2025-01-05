@@ -55,14 +55,15 @@
 
 header .logo {
   font-size: 2em;
+  margin-left: 10px;
 }
 
-.nav-links {
+.navigation {
   display: flex; /* 横並びに配置 */
   gap: 10px; /* リンク間にスペースを追加 */
   align-items: center; /* 垂直方向に中央揃え */
   justify-content: flex-end; /* 右寄せに配置 */
-  margin-right: 0;
+  margin-right: 10px;
 }
 
 .cover-top {
@@ -80,6 +81,7 @@ header .logo {
 .custom-navbar{
   display: flex; /* 横並びに配置 */
   justify-content: space-between; /* 子要素間のスペースを均等に配置 */
+  width: 100%;
 }
 
  .nav-link {
@@ -93,31 +95,23 @@ header .logo {
   }
 
  /* ハンバーガーメニューのスタイル */
- .menu-icon {
+ .hamburger-menu {
    display: none; /* デフォルトで非表示 */
- }
- 
- .menu-icon span {
-   display: block;
-   background-color: #fff;
-   height: 3px;
-   width: 25px;
-   margin: 3px 0;
-   transition: all 0.3s ease; /* スムーズなアニメーション */
  }
  
  /* レスポンシブ対応 */
  @media screen and (max-width: 575px) {
-   .nav-links {
-    display: none;
-    /*flex-direction: column;*/
-    background-color: #000;
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-  }
+  .navigation {
+  display: none;
+  flex-direction: column;     /* 垂直方向に並べる */
+  align-items: center;        /* 子要素を左右中央に揃える */
+  justify-content: center;    /* 子要素を上下中央に揃える */
+  background: #242424;
+  position: fixed;
+  width: 100%;
+  top: 50px;
+  z-index: 9999;
+}
 
   .nav-link {
     color: #fff;
@@ -126,6 +120,7 @@ header .logo {
     display: block;
     padding: 24px 0;
     transition: .5s;
+    text-align: center; /* テキストを中央揃え */
   }
   
   .nav-link:hover {
@@ -133,11 +128,51 @@ header .logo {
   }
 
   /* ハンバーガーメニューアイコンの表示 */
-   .menu-icon {
-     display: flex;
-     flex-direction: column;
-     cursor: pointer;
+   .hamburger-menu {
+    display: block; /* ここで表示させる */
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: none;
+    background: #FFFFFF; /* 背景を白に設定 */
+    appearance: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: auto; /* 右寄せ */
    }
+
+   .hamburger-bar {
+    display: inline-block;
+    width: 44%;
+    height: 2px;
+    background: #000000; /* 黒に設定 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s;
+  }
+    .hamburger-bar:first-child {
+    top: 16px;
+  }
+    .hamburger-bar:nth-child(2) {
+    top: 24px;
+  }
+    .hamburger-bar:last-child {
+    top: 32px;
+  }
+    .hamburger-menu--open .hamburger-bar {
+    top: 50%;
+  }
+    .hamburger-menu--open .hamburger-bar:first-child {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+    .hamburger-menu--open .hamburger-bar:last-child {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+    .hamburger-menu--open .hamburger-bar:nth-child(2) {
+    display: none;
+  }
+
  }
  
  .footer {

@@ -1,6 +1,9 @@
-$(function () {
-    $('#js-hamburger-menu, .nav-link').on('click', function () {
-      $('.nav-links').slideToggle(500)
-      $('.menu-icon').toggleClass('menu-icon--open')
-    });
-  });
+import { Application } from "@hotwired/stimulus"
+
+const application = Application.start()
+
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus   = application
+
+export { application }

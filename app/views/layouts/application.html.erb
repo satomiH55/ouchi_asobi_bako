@@ -19,12 +19,12 @@
     <div class="logo">
       <%= link_to "おうちあそび箱", root_path, class: "text-white nav-link" %>
     </div>
-    <button class="menu-icon" id="js-hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger-menu"  id="js-hamburger-menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
     </button>
-    <nav class="nav-links">
+    <nav class="navigation">
       <%= link_to "トップ", root_path, class: "text-white nav-link" %>
       <%= link_to "投稿する", new_post_path, class: "text-white nav-link" %>
       <%= link_to "投稿一覧", posts_path, class: "text-white nav-link" %>
@@ -35,12 +35,11 @@
     </nav>
   </div>
 </header>
-  <script src="jquery.min.js"></script>
-  <script src="app.js"></script>
    <% end %>
    <%= yield %>
    <footer class="footer">
      <p><small>© おうちあそび箱</small></p>
    </footer>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>
