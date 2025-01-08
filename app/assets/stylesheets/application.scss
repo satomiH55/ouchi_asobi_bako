@@ -102,7 +102,7 @@ header .logo {
  /* レスポンシブ対応 */
  @media screen and (max-width: 575px) {
   .navigation {
-  display: none;
+  display: none; /* デフォルトで非表示 */
   flex-direction: column;     /* 垂直方向に並べる */
   align-items: center;        /* 子要素を左右中央に揃える */
   justify-content: center;    /* 子要素を上下中央に揃える */
