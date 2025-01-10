@@ -16,7 +16,7 @@
 }
 
 .cover-user-edit {
-    height: 100%;
+    min-height: 100vh;  /* ビューポートの高さに合わせて最小高さを設定 */
     width: 100%;
     background-image: url(/assets/colorful-scaled.jpg);
     background-size: 100% 100%;

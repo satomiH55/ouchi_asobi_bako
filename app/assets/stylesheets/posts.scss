@@ -92,6 +92,7 @@ textarea::placeholder {
 
 .comments-index {
   display: flex;
+  max-width: 90%; /* 幅を親要素の幅に制限 */
   flex-direction: column; /* コメントを縦に並べる */
   background-color: #fff;
   border: 1px #000 solid;
@@ -159,6 +160,10 @@ h3.large-text {
 
 .cover-show {
   .content1, .content2 {
+    display: flex;
+    flex-direction: column; /* 内部要素を縦に並べる */
+    justify-content: space-between; /* コンテンツ間のスペースを均等に */
+    flex-grow: 1; /* 両方が同じ高さになるように */
     padding: 15px;
   }
 
@@ -172,6 +177,8 @@ h3.large-text {
     border-left: 2px solid #eaeaea;
     flex-direction: column; /* 縦方向に並べる */
     flex-grow: 1;  /* content2が空いているスペースを埋めるように */
+    overflow-y: auto; /* 縦方向のスクロールを有効に */
+    overflow-x: hidden; /* 横スクロールバーを隠す */
   }
 
   .row {
@@ -181,7 +188,7 @@ h3.large-text {
 
   .col-md-6 {
     flex: 0 0 50%; /* 各カラムが幅50%を占める */
-    max-width: 45%;
+    max-width: 50%;
   }
 }
 
@@ -192,6 +199,7 @@ h3.large-text {
 }
 
 .post-details-row{
+  display: flex; /* フレックスボックスを使ってカラムを横並び */
   justify-content: center; /* 子要素を中央に寄せる */
   align-items: center; /* 垂直方向も中央寄せ */
 }
@@ -234,6 +242,13 @@ h3.large-text {
   max-width: 80%; /* 最大幅も80%に設定 */
 }
 
+.btn-post-list {
+  display: inline-block;  /* 横幅が文字数に合わせて調整されるように設定 */
+  width: auto !important;  /* 強制的に幅を自動調整 */
+  padding-left: 5px; /* 左の余白 */
+  padding-right: 5px; /* 右の余白 */
+}
+
 /* スマホ用のレスポンシブ対応 */
 @media screen and (max-width: 575px) { 
   /* 新規投稿画面レスポンシブ対応 */
@@ -261,6 +276,7 @@ h3.large-text {
 
   textarea {
     width: 100%; /* テキストエリアも100%に */
+    box-sizing: border-box; /* パディングやボーダーを含めたサイズに */
   }
 
   .custom-select {

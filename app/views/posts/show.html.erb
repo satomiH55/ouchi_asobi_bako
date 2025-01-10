@@ -59,7 +59,7 @@
         <div class="comments mt-5">
           <%= form_with(model: [@post, @comment], local: true) do |f| %>
             <div class="form-group">
-              <%= f.text_area :comment, size: "60x3", placeholder: "コメントする", class: "form-control" %>
+              <%= f.text_area :comment, size: "50x3", placeholder: "コメントする", class: "form-control" %>
               <% if @comment.errors.any? %>
                 <div class="text-danger">
                   <%= @comment.errors.full_messages.join(', ') %>
@@ -96,7 +96,7 @@
                           class: "btn btn-danger" %>
             </div>
           <% end %>
-          <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3" %>
+          <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3 mb-3 btn-post-list" %>
         </div>
 
         <%= paginate @comments %>
