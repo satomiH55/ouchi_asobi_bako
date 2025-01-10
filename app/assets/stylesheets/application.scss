@@ -186,6 +186,7 @@ header .logo {
    color: #fff;
    font-size: 14px; /* 文字サイズを指定 */
    padding: 10px 0;
+   margin-top: auto;  /* フレックスコンテナ内で自動的に下に配置 */
  }
  
  .image-container img {

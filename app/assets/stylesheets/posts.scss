@@ -27,7 +27,7 @@ h1 {
 }
 
 .cover-show { 
-  height: 100%;
+  min-height: 100vh;  /* ビューポートの高さに合わせて最小高さを設定 */
   width: 100%;
   display: table;
   background-image: url(/assets/colorful-scaled.jpg);
@@ -91,6 +91,8 @@ textarea::placeholder {
 }
 
 .comments-index {
+  display: flex;
+  flex-direction: column; /* コメントを縦に並べる */
   background-color: #fff;
   border: 1px #000 solid;
   font-family: "游ゴシック", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif;
@@ -168,6 +170,8 @@ h3.large-text {
   .content2 {
     background-color: #ffffff;
     border-left: 2px solid #eaeaea;
+    flex-direction: column; /* 縦方向に並べる */
+    flex-grow: 1;  /* content2が空いているスペースを埋めるように */
   }
 
   .row {
@@ -282,6 +286,10 @@ h3.large-text {
   margin-right: 10px;
   /* 必要に応じて幅や高さを調整 */
   max-width: 80%;
+}
+
+.content2 {
+  border-left: none;
 }
 
 .post-details-row .content1 .post-image {
