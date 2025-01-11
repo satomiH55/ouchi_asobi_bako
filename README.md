@@ -30,12 +30,16 @@
 
 ## 利用方法
 - ユーザー新規登録を行う、またはログインする
-  
+  ![ユーザー新規登録](app/assets/images/1_login.PNG)
+
 - おうち遊びの手順等を写真とともに投稿
-  
+  ![おうち遊びの投稿](app/assets/images/2_postnew.PNG)
+
 - 他のユーザーの投稿を閲覧し、気に入った投稿に「いいね」や「コメント」を残す
+  ![他のユーザーの投稿](app/assets/images/3_postshow.PNG)
 
 - キーワードやカテゴリ検索を使い、目的に合わせた投稿をチェック
+  ![キーワードやカテゴリ検索](app/assets/images/4_postindex.PNG)
 
 ## 機能一覧
 - 基本的なCRUD機能
