@@ -40,8 +40,8 @@ class PostsController < ApplicationController
     end
     # コメント関連の処理
     @comment = Comment.new
-    # 1ページに7コメントまで表示
-    @comments = @post.comments.page(params[:page]).per(7).reverse_order
+    # 1ページに5コメントまで表示
+    @comments = @post.comments.page(params[:page]).per(5).reverse_order
   end
 
   def edit

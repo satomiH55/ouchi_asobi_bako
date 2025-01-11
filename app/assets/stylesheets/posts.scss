@@ -158,6 +158,10 @@ h3.large-text {
   margin-left: 25px;
 }
 
+h3.large-text, ol.pl-3 {
+  flex-grow: 1; /* 右カラムのコンテンツが空いているスペースを埋めるように */
+}
+
 .cover-show {
   .content1, .content2 {
     display: flex;
@@ -170,6 +174,7 @@ h3.large-text {
   .content1 {
     background-color: #ffffff;
     padding-left: 10px;
+    margin-left: 10px; /* 左側に余白を追加 */
   }
 
   .content2 {
@@ -179,6 +184,7 @@ h3.large-text {
     flex-grow: 1;  /* content2が空いているスペースを埋めるように */
     overflow-y: auto; /* 縦方向のスクロールを有効に */
     overflow-x: hidden; /* 横スクロールバーを隠す */
+    margin-right: 10px; /* 右側に余白を追加 */
   }
 
   .row {
@@ -187,8 +193,8 @@ h3.large-text {
   }
 
   .col-md-6 {
-    flex: 0 0 50%; /* 各カラムが幅50%を占める */
-    max-width: 50%;
+    flex: 0 0 45%; /* 各カラムが幅45%を占める */
+    max-width: 45%;
   }
 }
 
@@ -198,10 +204,10 @@ h3.large-text {
   height: auto; /* 縦横比を保持 */
 }
 
-.post-details-row{
+.post-details-row {
   display: flex; /* フレックスボックスを使ってカラムを横並び */
   justify-content: center; /* 子要素を中央に寄せる */
-  align-items: center; /* 垂直方向も中央寄せ */
+  align-items: stretch; /* 子要素の高さを揃える */
 }
 
 .like-view-section {
