@@ -167,6 +167,7 @@ h3.large-text, ol.pl-3 {
     display: flex;
     flex-direction: column; /* 内部要素を縦に並べる */
     justify-content: space-between; /* コンテンツ間のスペースを均等に */
+    align-self: flex-start; /* 各要素が上に揃うようにする */
     flex-grow: 1; /* 両方が同じ高さになるように */
     padding: 15px;
   }
@@ -207,7 +208,7 @@ h3.large-text, ol.pl-3 {
 .post-details-row {
   display: flex; /* フレックスボックスを使ってカラムを横並び */
   justify-content: center; /* 子要素を中央に寄せる */
-  align-items: stretch; /* 子要素の高さを揃える */
+  align-items: flex-start; /* 子要素の高さを揃える */
 }
 
 .like-view-section {

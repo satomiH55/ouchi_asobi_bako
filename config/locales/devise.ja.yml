@@ -1,6 +1,8 @@
 ja:
   errors:
     format: "%{message}"
+    messages:
+      confirmation: "パスワードが一致しません。"
   activerecord:
     errors:
       models:
