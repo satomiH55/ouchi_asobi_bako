@@ -10,7 +10,7 @@ h1 {
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
+  background-image: image-url("colorful-scaled.jpg");
   background-color: rgba(255,255,255,0.7);
   background-blend-mode: soft-light; /* 新しいブレンドモード */
   background-size: cover; // 画面全体に自然にフィット
@@ -20,7 +20,7 @@ h1 {
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
+  background-image: image-url("colorful-scaled.jpg");
   background-color: rgba(255,255,255,0.7);
   background-blend-mode: soft-light; /* 新しいブレンドモード */
   background-size: cover; // 画面全体に自然にフィット
@@ -30,7 +30,7 @@ h1 {
   min-height: 100vh;  /* ビューポートの高さに合わせて最小高さを設定 */
   width: 100%;
   display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
+  background-image: image-url("colorful-scaled.jpg");
   background-color: rgba(255,255,255,0.7);
   background-blend-mode: soft-light; /* 新しいブレンドモード */
   background-size: cover;
@@ -40,7 +40,7 @@ h1 {
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
+  background-image: image-url("colorful-scaled.jpg");
   background-color: rgba(255,255,255,0.7);
   background-blend-mode: soft-light; /* 新しいブレンドモード */
   background-size: cover; // 画面全体に自然にフィット

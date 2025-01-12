@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/colorful-scaled.jpg);
+  background-image: image-url("colorful-scaled.jpg");
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
   background-size: cover; // 画面全体に自然にフィット
