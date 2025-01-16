@@ -30,8 +30,8 @@
 
 ## 利用方法
 - ユーザー新規登録を行う、またはログインする
-  <p><img src="app/assets/images/1_top.PNG" alt="トップページ" style="width: 100%; display: block; margin-bottom: 20px;"></p>
-  <p><img src="app/assets/images/1_login.PNG" alt="ユーザー新規登録" style="width: 100%; display: block; margin-bottom: 20px;"></p>
+  ![1_top](https://github.com/user-attachments/assets/d2a2793b-a10f-4c58-a6be-ea8b73181d11)
+  ![1_login](https://github.com/user-attachments/assets/8c13afc2-8d7d-456b-a845-501582daaf4e)
 
 - おうち遊びの手順等を写真とともに投稿
   <p><img src="app/assets/images/2_postnew.PNG" alt="おうち遊びの投稿" style="width: 100%; display: block; margin-bottom: 20px;"></p>
