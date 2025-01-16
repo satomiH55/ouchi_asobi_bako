@@ -30,16 +30,17 @@
 
 ## 利用方法
 - ユーザー新規登録を行う、またはログインする
-  <p><img src="app/assets/images/1_login.PNG" alt="ユーザー新規登録" width="300" style="display: block; margin-bottom: 20px;"></p>
+  <p><img src="app/assets/images/1_top.PNG" alt="トップページ" style="width: 100%; display: block; margin-bottom: 20px;"></p>
+  <p><img src="app/assets/images/1_login.PNG" alt="ユーザー新規登録" style="width: 100%; display: block; margin-bottom: 20px;"></p>
 
 - おうち遊びの手順等を写真とともに投稿
-  <p><img src="app/assets/images/2_postnew.PNG" alt="おうち遊びの投稿" width="300" style="display: block; margin-bottom: 20px;"></p>
+  <p><img src="app/assets/images/2_postnew.PNG" alt="おうち遊びの投稿" style="width: 100%; display: block; margin-bottom: 20px;"></p>
 
 - 他のユーザーの投稿を閲覧し、気に入った投稿に「いいね」や「コメント」を残す
-  <p><img src="app/assets/images/3_postshow.PNG" alt="他のユーザーの投稿" width="300" style="display: block; margin-bottom: 20px;"></p>
+  <p><img src="app/assets/images/3_postshow.PNG" alt="他のユーザーの投稿" style="width: 100%; display: block; margin-bottom: 20px;"></p>
 
 - キーワードやカテゴリ検索を使い、目的に合わせた投稿をチェック
-  <p><img src="app/assets/images/4_postindex.PNG" alt="キーワードやカテゴリ検索" width="300" style="display: block; margin-bottom: 20px;"></p>
+  <p><img src="app/assets/images/4_postindex.PNG" alt="キーワードやカテゴリ検索" style="width: 100%; display: block; margin-bottom: 20px;"></p>
 
 ## 機能一覧
 - 基本的なCRUD機能
